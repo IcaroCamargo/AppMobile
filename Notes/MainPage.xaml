@@ -7,26 +7,39 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
 
-            <Label
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            <Editor
+                x:Name="editor"
+                Placeholder="Enter your response here"
+                HeightRequest="250"
+                TextChanged="editor_TextChanged"
+                Completed="editor_Completed"/>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-            
-            
+            <HorizontalStackLayout
+     Padding="30,0"
+     Spacing="25">
+
+                <Button
+         x:Name="SalvarBtn"
+         Text="Salvar"
+         SemanticProperties.Hint="Para Salvar"
+         Clicked="SalvarBtn_Clicked"
+         HorizontalOptions="Fill"/>
+
+                <Button
+         x:Name="ApagarBtn"
+         Text="Apagar"
+         SemanticProperties.Hint="Para Apagar"
+         Clicked="ApagarBtn_Clicked"
+         HorizontalOptions="Fill"/>
+
+
+            </HorizontalStackLayout>
+
+
         </VerticalStackLayout>
-    </ScrollView>
+
+      
+    </ScrollView>   
 
 </ContentPage>

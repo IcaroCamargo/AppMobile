@@ -2,23 +2,31 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        string caminho = Path.Combine(FileSystem.AppDataDirectory,"arquivo");
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void editor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            count++;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void editor_Completed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SalvarBtn_Clicked(object sender, EventArgs e)
+        {
+            string conteudo = editor.Text;
+            File.WriteAllText(caminho, conteudo);
+        }
+
+        private void ApagarBtn_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 
